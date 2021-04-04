@@ -2,7 +2,7 @@
   "name": "museum-stats",
   "version": "0.0.0",
   "scripts": {
-    "build": "tsc --build --clean && tsc",
+    "build": "npm run lint && tsc --build --clean && tsc",
     "lint": "eslint src/**/*.ts",
     "start": "npm run lint && npm run build && npm run dev",
     "test": "npm run build && ava",
