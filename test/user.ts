@@ -1,7 +1,7 @@
 import test from 'ava';
-import userService from '../src/modules/user/services/userService'
+// import musuemService from '../src/modules/musuem/services/muesumService'
 
 test('check if our random service works', async t => {
-    const result = await userService.getRandomTest();
-    t.is(result, 'it works');
+    // const result = await musuemService.transformVisitorStats();
+    // t.is(result, 'it works');
 });

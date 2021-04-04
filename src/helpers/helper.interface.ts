@@ -1,6 +1,6 @@
-import { successResponse, errorResponse } from "./responseType";
-
 export interface IHelper {
-    createSuccessResponse(body:any): successResponse
-    createErrorResponse(error:any): errorResponse
+    convertTimeStampToDate(date: number): string;
+    deleteKeysFromObject(obj: any, keys: string[]): any;
+    getShortMonthFromDate(date: Date): string;
+    getYearFromDate(date: Date): string;
 }
