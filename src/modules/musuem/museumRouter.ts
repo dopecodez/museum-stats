@@ -3,6 +3,7 @@ import { IRouter } from '../router.interface';
 import musuemService from './services/muesumService';
 import helper from '../../helpers/helper';
 const router = Router();
+import { logger } from "../../helpers/logger";
 
 import { config } from '../../config/config';
 import makeRequest from '../../helpers/request';
@@ -20,7 +21,8 @@ class MuseumRouter implements IRouter{// eslint-disable-line
                 const result = musuemService.transformVisitorStats(apiResponse[0], (ignoredMuseum as string));
                 return res.json({"attendance": result}).end();
             } catch (err) {
-                throw err;
+                logger.error(err.message);
+                return res.status(500).json({"error": err.message}).end();
             }
         });
         return router;

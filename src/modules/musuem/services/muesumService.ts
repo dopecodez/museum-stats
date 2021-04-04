@@ -20,7 +20,7 @@ class MuseumService implements IMuseumService {
         keysToBeRemoved.push(ignoredMuseum);
         response.ignored = {
           museum: ignoredMuseum,
-          visitors: apiResponse[ignoredMuseum],
+          visitors: Number(apiResponse[ignoredMuseum]),
         };
       }
       filteredResponse = helper.deleteKeysFromObject(
