@@ -11,7 +11,6 @@ import makeRequest from '../../helpers/request';
 class MuseumRouter implements IRouter{// eslint-disable-line
     get routes(){
         router.get('/', async (req: Request, res: Response) => {
-            // eslint-disable-next-line no-useless-catch
             try {
                 const date = Number(req.query.date);
                 const ignoredMuseum = req.query.ignore;
@@ -19,7 +18,7 @@ class MuseumRouter implements IRouter{// eslint-disable-line
                   throw new Error("missing date in query");
                 }
                 const dateString = helper.convertTimeStampToDate(date);
-                const apiUrl = `${config.API_URL}?month=${dateString}T00:00:00.000`;
+                const apiUrl = `${config.API_URL}?month=${dateString}T00:00:00.000`;//constructing the url
                 const apiResponse = await makeRequest(apiUrl);
                 if (apiResponse.length == 0) {
                   throw new Error(`Response is empty for ${apiUrl}`);

@@ -6,8 +6,8 @@ import MuseumRouter from './musuem/museumRouter'
 const router = Router();
 
 class BaseRouter implements IRouter{// eslint-disable-line
-    get routes(){
-        router.use('/visitors', MuseumRouter.routes);
+    get routes(){ // getter for routes
+        router.use('/visitors', MuseumRouter.routes); 
         return router;
     }
 }

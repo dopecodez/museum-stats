@@ -9,12 +9,12 @@ class Server implements ServerInterface {// eslint-disable-line
     const app = express();
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
+    app.use(cors());
     app.use('/api', baseRouter.routes);//setting up base route
-    // define a route handler for the default home page
+    // define a route handler for the default home page so it looks good
     app.get("/", (req, res) => {
       res.send("Welcome to express-create application! ");
     });
-    app.use(cors());
     return app;
   }
 }

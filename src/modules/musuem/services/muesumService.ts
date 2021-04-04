@@ -26,13 +26,14 @@ class MuseumService implements IMuseumService {
       filteredResponse = helper.deleteKeysFromObject(
         apiResponse,
         keysToBeRemoved
-      );
+      ); // delete month and ignored museum keys from object so it can be processed
 
       let highest = -1,
         highestObj: museumVistorStats,
         lowest = 0,
         lowestObj: museumVistorStats,
         total = 0;
+
       Object.keys(filteredResponse).forEach((key) => {
         const visitorCount = Number(filteredResponse[key]);
         total += visitorCount;
@@ -51,6 +52,7 @@ class MuseumService implements IMuseumService {
           };
         }
       });
+      
       response.highest = highestObj;
       response.lowest = lowestObj;
       response.total = total;
